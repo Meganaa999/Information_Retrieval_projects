@@ -29,13 +29,13 @@ def score_calc_per_word(doc_freq_list, vocabulary, doc_freq_per_word, N):
         # print(z)
         #score = 0
         docno = 0
-        score = []
+        score = {}
         for doc in doc_freq_list:
             if word in doc:
-                score.insert(docno, doc[word] *
-                             (math.log2(N/doc_freq_per_word[word])))
+                score[docno] = doc[word] * (math.log2(N/doc_freq_per_word[word]))
             else:
-                score.insert(docno, 0)
+                score[docno] = 0
+
             docno = docno+1
 
         # print(score)

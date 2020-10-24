@@ -49,7 +49,8 @@ def result():
 	for i in sorted_list[:10]:
 		file_link= r'http://www.gutenberg.org/ebooks/' 
 		file_link+=str(documentFiles[int(i)])
-		html+="<div><div style=\"margin-left:90px\"><a class='resultxx' href=\"http://www.gutenberg.org/ebooks/\">"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
+		x=str(documentFiles[int(i)])
+		html+="<div><div style=\"margin-left:90px\"><a class='resultxx' href="+file_link+" }>"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
 		#html+="<b href="file_link">file_link</b>"
 	html+="<div class='text-center'><h3><a href=/>Search Again</a></h3></div>"
 	html+="</body></html>"

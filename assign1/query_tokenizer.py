@@ -1,5 +1,5 @@
-input_query=input("search here: ")
-query=set(())
+#input_query=input("search here: ")
+queryfin=set(())
 #print(query)
 import json
 import nltk
@@ -16,37 +16,42 @@ from nltk.stem.snowball import SnowballStemmer
 from nltk.stem import WordNetLemmatizer
 #from textblob import Word 
 
-stemmer = SnowballStemmer("english")
-lemmatizer = WordNetLemmatizer()
-stop_words=set(stopwords.words('english'))
+def preprocessing(query):
+    stemmer = SnowballStemmer("english")
+    lemmatizer = WordNetLemmatizer()
+    stop_words=set(stopwords.words('english'))
 
-#for line in query:
-input_query=input_query.lower()
-#print(query)
-tokenizer = nltk.RegexpTokenizer(r"\w+")
-tokens1 = tokenizer.tokenize(input_query)
-    
-    
-line_without_stopwords=[w for w in tokens1 if not w in stop_words]
-line_without_stopwords=[]
-            
-    #for a single word in a line remove stop words
-for w in tokens1:
-    if w not in stop_words:
-        line_without_stopwords.append(w)
-            
-tokens2 = [stemmer.stem(token) for token in line_without_stopwords] # Stemming
-for w in tokens2:
-    #v=Word(w)
-    query.add(w)
-    v=lemmatizer.lemmatize(w)
-    #print(v)
-    query.add(v)
+    #for line in query:
+    query=query.lower()
+    #print(query)
+    tokenizer = nltk.RegexpTokenizer(r"\w+")
+    tokens1 = tokenizer.tokenize(query)
+        
+        
+    line_without_stopwords=[w for w in tokens1 if not w in stop_words]
+    line_without_stopwords=[]
+                
+        #for a single word in a line remove stop words
+    for w in tokens1:
+        if w not in stop_words:
+            line_without_stopwords.append(w)
+                
+    tokens2 = [stemmer.stem(token) for token in line_without_stopwords] # Stemming
+    for w in tokens2:
+        #v=Word(w)
+        queryfin.add(w)
+        v=lemmatizer.lemmatize(w)
+        #print(v)
+        queryfin.add(v)
+    for w in queryfin:
+        print(dictionary.meaning(w))
+    return queryfin
 
-score_final={}
+
 def find_rank_doc(query):
     with open("./score_per_word.json") as data:
         score_list = json.load(data)
+    score_final={}
     cnt=0
     for term in query:
         if term in score_list:
@@ -79,17 +84,11 @@ def findtop10():
 
 
 
-
-
-
-
-
-for w in query:
-    print (dictionary.meaning(w))
-
-print(query)
-find_rank_doc(query)
-findtop10()
+def exec(query):
+    query_new=preprocessing(query)
+    print(query_new)
+    find_rank_doc(query_new)
+    findtop10()
     
 
 

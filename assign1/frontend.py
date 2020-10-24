@@ -47,10 +47,10 @@ def result():
 		score_list = json.load(data)
 	sorted_list=sorted(score_list,key=score_list.get,reverse=True) 
 	for i in sorted_list[:10]:
-		#docname = docname.split(":")
-		#html+="<div class=\"row\"><div style=\"margin-left:90px\"><a class='resultxx'>"+ "Song &nbsp;:&nbsp " + i[0] + "Artist :" + docname[2] +  "</a><br></div><br>"
-		html+="<div><div style=\"margin-left:90px\"><a class='resultxx'>"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
-	
+		file_link= r'http://www.gutenberg.org/ebooks/' 
+		file_link+=str(documentFiles[int(i)])
+		html+="<div><div style=\"margin-left:90px\"><a class='resultxx' href=\"http://www.gutenberg.org/ebooks/\">"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
+		#html+="<b href="file_link">file_link</b>"
 	html+="<div class='text-center'><h3><a href=/>Search Again</a></h3></div>"
 	html+="</body></html>"
 

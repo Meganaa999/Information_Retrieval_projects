@@ -1,97 +1,94 @@
-import os
+#input_query=input("search here: ")
+queryfin=set(())
+#print(query)
 import json
 import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-from nltk.stem.snowball import SnowballStemmer
-from nltk.stem import WordNetLemmatizer
-
-#nltk.download('wordnet')
-
+#don'ynltk.download('wordnet')
 import json
 import re
 import string
 from PyDictionary import PyDictionary
 dictionary=PyDictionary()
 
-stemmer = SnowballStemmer("english")
-lemmatizer = WordNetLemmatizer()
-stop_words=set(stopwords.words('english'))
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem.snowball import SnowballStemmer
+from nltk.stem import WordNetLemmatizer
+#from textblob import Word 
 
-documentFiles = [f for f in os.listdir("./corpus_sample") if f.endswith(".txt")]
-for i in range(len(documentFiles)):
-    documentFiles[i] = int(documentFiles[i].split(".")[0])
-documentFiles.sort()
-# print(documentFiles)
-N = len(documentFiles)
+def preprocessing(query):
+    stemmer = SnowballStemmer("english")
+    lemmatizer = WordNetLemmatizer()
+    stop_words=set(stopwords.words('english'))
 
-
-def take_query():
-    input_query=input("search here: ")
-    query = set(())
     #for line in query:
-    input_query=input_query.lower()
+    query=query.lower()
     #print(query)
     tokenizer = nltk.RegexpTokenizer(r"\w+")
-    tokens1 = tokenizer.tokenize(input_query) 
+    tokens1 = tokenizer.tokenize(query)
+        
+        
     line_without_stopwords=[w for w in tokens1 if not w in stop_words]
     line_without_stopwords=[]
-            
-    #for a single word in a line remove stop words
+                
+        #for a single word in a line remove stop words
     for w in tokens1:
         if w not in stop_words:
             line_without_stopwords.append(w)
-            
+                
     tokens2 = [stemmer.stem(token) for token in line_without_stopwords] # Stemming
     for w in tokens2:
         #v=Word(w)
-        query.add(w)
+        queryfin.add(w)
         v=lemmatizer.lemmatize(w)
         #print(v)
-        query.add(v)
-
-    print(query)
-    for w in query:
-        print(w,dictionary.meaning(w))
-
-    find_rank_doc(query) # function call to rank docs
-
+        queryfin.add(v)
+    for w in queryfin:
+        print(dictionary.meaning(w))
+    return queryfin
 
 
 def find_rank_doc(query):
-    with open("./score_per_word.json") as file3:
-        tf_idf = json.load(file3)
+    with open("./score_per_word.json") as data:
+        score_list = json.load(data)
+    score_final={}
+    cnt=0
+    for term in query:
+        if term in score_list:
+            #sorted_list=sorted(score_list[term],key=score_list[term].get,reverse=True)
+            k=0
+            #term2="legend"
+            #print(score_list[term]+score_list[term2])
+            for i in score_list[term]:
+                #print(score_list[term][i])
+                if cnt==0:
 
-    score = {} 
+                    score_final[k]=score_list[term][i]
+                else:
+                    score_final[k]+=score_list[term][i]
+                k+=1
+        cnt+=1
 
-    for i in range(N):
-        score[i] = 0
-        for word in query:
-            if(word in tf_idf):
-                score[i] += tf_idf[word][str(i)]
-
-    '''
+     # Dumping the created vocabulary into a json for further use
     with open("./final_doc_scores_after_query.json", 'w') as file1:
-        json.dump(score, file1)    
-    '''
+        json.dump(score_final, file1)    
 
-    findtop10(score)   
-
-
-def findtop10(score_final):
-    #with open("./final_doc_scores_after_query.json") as data:
-    #    score_list = json.load(data)
-    sorted_list=sorted(score_final,key=score_final.get,reverse=True)
+def findtop10():
+    with open("./final_doc_scores_after_query.json") as data:
+        score_list = json.load(data)
+    sorted_list=sorted(score_list,key=score_list.get,reverse=True)
     #print(sorted_list)
-    print("Docs ranked as follows:\n")
+    print("docs ranked as follows:")
     for i in sorted_list[:10]:
-        print(str(documentFiles[i]) + ".txt", score_final[i])
+        print(i)
 
 
 
-# First call to take_query() to take input from user
-take_query()
-
+def exec(query):
+    query_new=preprocessing(query)
+    print(query_new)
+    find_rank_doc(query_new)
+    findtop10()
     
 
 

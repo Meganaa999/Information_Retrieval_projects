@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<!--Google Fonts-->
+<head>
+    <title>PoemSearchEngine</title>
+    <meta charset="utf-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css')}}">
+     <script src="static/jquery.min.js"></script>
+     <script src="static/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  	<div class="main">
+        
+        <!-- Home Page -->
+    
+        <div class="home">
+          <div class="container">
+            <div class="row">
+              <div class="eight columns offset-by-two">
+                <h1 class="headline">Poem Search Engine</h1>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="eight columns offset-by-two">
+                <form action="/result" method="POST" class="wiki-search-form">
+                  <input name ="query" type="text" placeholder="Enter the poem query..." class="wiki-search-input" id="wiki-search-input" required autofocus>
+                  <button class="button btn btn-wiki">Poem Search</button>
+                  <a class="button btn btn-lucky" href="http://universe.bits-pilani.ac.in/hyderabad/arunamalapati/Profile" target="_blank">Under The Guidance of</a>
+                </form>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="eight columns offset-by-two">
+                <footer class="attribution">
+                  <p>Designed and coded by <a href="https://github.com/rupsadhar">Rupsa Dhar</a> <a href="https://github.com/everlearner">Keshav Kabra</a> <a href="https://github.com/Meganaa999">Meganaa Reddy</a></p>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+</body>

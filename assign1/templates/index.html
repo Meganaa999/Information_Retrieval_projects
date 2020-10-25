@@ -9,10 +9,16 @@
      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'main.css')}}">
      <script src="static/jquery.min.js"></script>
      <script src="static/bootstrap.min.js"></script>
-</head>
+     <!img src='books.jpg'>
+     <style>
+       background-image:url('books.jpg');
+       
+     </style>
+     </head>
 
-<body>
-
+<body style="background-image:url('https://i.pinimg.com/originals/07/a4/e0/07a4e08818d2acc4dae376554dbedc1a.jpg') ;background-color:teal;background-size:cover;opacity:1;background-width:100%;background-repeat:no-repeat;">
+  <!img src='data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw4HEhAIDREQDQ0NDxYNDg4PDxANDQ8NFx0YGRcRExMYHCggGCYnGxMTIT0hJSkrLi46Fx8/ODMsNystLisBCgoKDg0OGhAPFi0fHyUrLTA3Li0tNystNystLS0tLTItLS0rLS0tNSstLS0tNy0tLS4tLS0tLS0tLS0tLS4tNf/AABEIALcBEwMBIgACEQEDEQH/xAAaAAEAAwEBAQAAAAAAAAAAAAAAAgMEAQYF/8QAMBABAAECBAQEBgAHAAAAAAAAAAECEwMEMVEFERIhMkFSYRQiI0JicSQzkZKhwcL/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAQQFAwIG/8QAHxEBAAIDAAIDAQAAAAAAAAAAAAECAxESMUIEIWET/9oADAMBAAIRAxEAPwD6QCi+TAAAAAAAAAAAAAAAAAAH2OFZO3F+qPmmPlj007s3C8nem9VHyUz2j1VPtrvxsPvKxhx+0ijE1leoxNZXVhwBAAADvROx0TsDg70TsdE7A4Exy7AAAPOgMZngAAAAAAAAAAAAAAAC/JZac1V0aUx3qnaFWFhzizGHTHOZnlD0WVy8ZamMOP3M7zu74MPc7nw64qdT+LKKIoiKIjlERyiPZIGmuCjE1leoxNZEOAIBx0BfDrkOpSAApxNUUsTVFCAAHnQGMzwAAAAAAAAAAAAAAH0+E5Pn/EVR2+yP+nvHSb21D1Ws2nUNXDcn8PHXV46o7/jGzaDVpWKxqF2tYiNQAPT0KMTWV6jE1kQ4AgAAXw65DqUgAKcTVFLE1RQgAB5O5VuXKt0BiqKdyrcuVboAJ3Kty5VugAncq3LlW6ACdyrcuVboAJ3Kty5VugAncq3LlW6ACdyrcuVboLspl6s1VGDTrOs+UU+cymImZ1Bpr4Vlas5VzqmbdPinefTD0sRy7K8tgU5amMKnSn+sz5zK1qYcX86/q5SnMADs9gACjE1leoxNZEOAIAAF8OuQ6lIACnE1RSxNUUIAAeQAYqiAAAAAAAAAAAA7TTNcxTEc5meURGszs9VwzJRkqeU966u9c+/pj9MnA8haj4muPmqj5In7ad/3L67Q+Nh5jq3lZxU19yALbsAAAAKMTWV6jE1kQ4AgAAXw65DqUgAKcTVFLE1RQgAB5ABiqIAAAAAAAAAA+pwXIfEzfrj6dM9o8q6tv0y8Pyc52q3HamO9dW1L1WHhxhRGHTHKmmOUR7LXxsPU9T4dsdN/cpgNFZAAAAAAFGJrK9RiayIcAQAAL4dch1KQAFOJqisromZ5o25QhEStyA8cAxVEAAAAAAAATwcKrGqjDpjnVVPKIQel4PkPhablcfUrjv8AjT6XXDinJbT3SvUtWRylOTpjDjvOtVXqq3aAasRERqFuI0AJSAAAAAAKMTWV6mumZkER3pk6Z2Qhwd6Z2OmdgXQ65DqUgAAAAAPEDaMRn7YhtA2xDaBtiG0DbENrRkst8RPOfBTr7+z1Ws2nUJjczqFnA+H9XLN1x2j+XE+c+p95miOXbZ1q48cUrqFyteY00DOOj00DOA0DOA0DOA0DOA0DOA0DOA0DOA0DOA0DOA0DOA0DOA86AxWeAAAAARE1do7zPaI9wTwMKcaYojz1naN33MLDjCiKI0j/AD7qsnloy8cvunxT/poaWDFxG58reKnMbnyAO7qAAAAAAAAAAAAAAAAAAAAAAAA86AxmeAAAAPp8OyvR9arWfDG0bqOH5W7Nyrwxp+UvrLnxsPvKxix+0gC6sAAAAAAAAAAAAAAAAAAAAAAAAAAPOgMZngAC/J5ac1V0R2iO9U7Qqw6JxZiimOczPKIehymXjLU9Ed51qneXfBi7n78OmOnU/jtGB0RFMcoiO0Q7bWjT0uqrcltaAqtlr3WgKrXuWloCq0WloCq3JblaAqtlr3WgKrZblaAqtFpaAqtFpaAqte5aWgKrZaWgKrTk4fLuuRr0kFICEAAPOgMZngAPucMyliLtXjrj+2nZuBr46xWsRC/WIiNQAPb0AAAAAAAAAAAAAAAAAAAAAAI16SAKQEIAAf/Z' height=100% width=100% alt="Image not visible">
+     
   	<div class="main">
         
         <!-- Home Page -->
@@ -21,7 +27,7 @@
           <div class="container">
             <div class="row">
               <div class="eight columns offset-by-two">
-                <h1 class="headline">Poem Search Engine</h1>
+          <h1 style="font-family:cursive;font-size:50px;font-color:rgba(112, 133, 127, 0.575);">Poem Search Engine</h1>
               </div>
             </div>
     
@@ -30,7 +36,7 @@
                 <form action="/result" method="POST" class="wiki-search-form">
                   <input name ="query" type="text" placeholder="Enter the poem query..." class="wiki-search-input" id="wiki-search-input" required autofocus>
                   <button class="button btn btn-wiki">Poem Search</button>
-                  <a class="button btn btn-lucky" href="http://www.gutenberg.org/ebooks/" target="_blank">Feeling lucky?</a>
+                  <a class="button btn btn-lucky" href="http://www.gutenberg.org/ebooks/" target="_blank">Feeling Lucky?</a>
                 </form>
               </div>
             </div>

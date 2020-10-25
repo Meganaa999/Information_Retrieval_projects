@@ -37,15 +37,16 @@ def result():
 	print(query)
 	html="<!DOCTYPE html> <head><link rel=stylesheet type=text/css href=static/styles/bootstrap.min.css> <link rel=stylesheet type=text/css href=static/styles/style.css></head><body>"
 	html+="<div class='text-center'><h2>Search results for <i><b>"+query+"</b></i></h2></div><hr>"
-	exec(query)
 
+	#print("Hello" + query)
+	score_list = exec(query)
+	
 	# Loading metadata of the poems, to get the titles
 	with open("./metadata/gutenberg-metadata.json") as file_m:
 		metadata = json.load(file_m)
 	with open("./meanings.json") as file3:
 		mean = json.load(file3)
-	with open("./final_doc_scores_after_query.json") as data:
-		score_list = json.load(data)
+
 	sorted_list=sorted(score_list,key=score_list.get,reverse=True) 
 	for w in mean:
 		html+="<div class='dict'>"+str(mean[w])+"</div>"

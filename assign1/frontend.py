@@ -13,6 +13,10 @@ import pickle
 import json
 import query_tokenizer
 from query_tokenizer import exec
+
+from PyDictionary import PyDictionary
+dictionary=PyDictionary()
+
 from flask import Flask, redirect, url_for, request, render_template
 
 documentFiles = [f for f in os.listdir("./corpus_sample") if f.endswith(".txt")]
@@ -39,17 +43,16 @@ def result():
 	html+="<div class='text-center'><h2>Search results for <i><b>"+query+"</b></i></h2></div><hr>"
 
 	#print("Hello" + query)
-	score_list = exec(query)
+	query_new, score_list = exec(query)
 	
+	mean = find_dict_meaning(query_new)
 	# Loading metadata of the poems, to get the titles
 	with open("./metadata/gutenberg-metadata.json") as file_m:
 		metadata = json.load(file_m)
-	with open("./meanings.json") as file3:
-		mean = json.load(file3)
-
+	
 	sorted_list=sorted(score_list,key=score_list.get,reverse=True) 
 	for w in mean:
-		html+="<div class='dict'>"+str(mean[w])+"</div>"
+		html+="<div class='dict'>" + str(mean[w])+"</div>"
 	for i in sorted_list[:10]:
 		file_link= r'http://www.gutenberg.org/ebooks/' 
 		file_link+=str(documentFiles[int(i)])
@@ -62,6 +65,12 @@ def result():
 
 	return html
 
+
+def find_dict_meaning(query_new):
+	dict_meaning={}
+	for w in query_new:
+		dict_meaning[w] = dictionary.meaning(w)
+	return dict_meaning
 
 if __name__ == '__main__':
 	app.run(debug = True)

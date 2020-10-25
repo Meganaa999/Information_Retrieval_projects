@@ -99,6 +99,9 @@ We have also provided dictinary meanings for every term in the query using PyDic
 
 ![](images/results.PNG)
 
+### Redirecting to the web page 
+
+![](images/gutenberg_link.PNG)
 
 ## Machine specs:
 1. Processor: i5-8250U

@@ -1,5 +1,4 @@
 #input_query=input("search here: ")
-queryfin=set(())
 #print(query)
 import json
 import nltk
@@ -17,6 +16,7 @@ from nltk.stem import WordNetLemmatizer
 #from textblob import Word 
 
 def preprocessing(query):
+    queryfin=set(())
     stemmer = SnowballStemmer("english")
     lemmatizer = WordNetLemmatizer()
     stop_words=set(stopwords.words('english'))
@@ -54,45 +54,45 @@ def preprocessing(query):
 
 def find_rank_doc(query):
     with open("./score_per_word.json") as data:
-        score_list = json.load(data)
+        tf_idf = json.load(data)
     score_final={}
     cnt=0
     for term in query:
-        if term in score_list:
+        if term in tf_idf:
             #sorted_list=sorted(score_list[term],key=score_list[term].get,reverse=True)
             k=0
             #term2="legend"
             #print(score_list[term]+score_list[term2])
-            for i in score_list[term]:
+            for i in tf_idf[term]:
                 #print(score_list[term][i])
                 if cnt==0:
 
-                    score_final[k]=score_list[term][i]
+                    score_final[k]=tf_idf[term][i]
                 else:
-                    score_final[k]+=score_list[term][i]
+                    score_final[k]+=tf_idf[term][i]
                 k+=1
         cnt+=1
 
      # Dumping the created vocabulary into a json for further use
-    with open("./final_doc_scores_after_query.json", 'w') as file1:
-        json.dump(score_final, file1)    
+     
+    findtop10(score_final)
+    return score_final
 
-def findtop10():
-    with open("./final_doc_scores_after_query.json") as data:
-        score_list = json.load(data)
-    sorted_list=sorted(score_list,key=score_list.get,reverse=True)
+def findtop10(score_final):
+    sorted_list=sorted(score_final,key=score_final.get,reverse=True)
     #print(sorted_list)
     print("docs ranked as follows:")
     for i in sorted_list[:10]:
-        print(i)
+        print(i, score_final[i])
+    
 
 
 
 def exec(query):
     query_new=preprocessing(query)
     print(query_new)
-    find_rank_doc(query_new)
-    findtop10()
+    score_list = find_rank_doc(query_new)
+    return score_list
     
 
 

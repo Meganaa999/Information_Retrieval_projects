@@ -122,10 +122,12 @@ textarea {
   margin: 0; }
 
 button {
+  background-color:white;
   overflow: visible; }
 
 button,
 select {
+  background-color:white;
   text-transform: none; }
 
 button,
@@ -438,6 +440,7 @@ p {
 
 .button,
 button {
+  background-color:white;
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -450,7 +453,7 @@ button {
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
-  background-color: transparent;
+  
   border-radius: 4px;
   border: 1px solid #bbb;
   cursor: pointer;

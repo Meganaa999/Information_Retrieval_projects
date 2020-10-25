@@ -1,6 +1,8 @@
 ## Poem Search Engine
 
-[Github](https://github.com/everlearner/Information-Retrievel/tree/main/assign1)
+[Github Link](https://github.com/everlearner/Information-Retrievel/tree/main/assign1)
+
+
 -A tf-idf based Search Engine for searching poems using query words. The main purpose of this project is understand how vector space based retrieval models work and how that can be utilised to get documents according to relevance.
  -More on [Tf-Idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). 
 

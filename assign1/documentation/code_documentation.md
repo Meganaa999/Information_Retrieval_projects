@@ -7,9 +7,7 @@ the files for which the documentation is being done are :
 5. frontend.py
 
 ## Modules/ libraries which were imported
--
--
-
+- pyDictionary
 
 ## document_tokenizer.py
 

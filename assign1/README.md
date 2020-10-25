@@ -1,6 +1,6 @@
 ## Poem Search Engine
 
--A tf-idf based Search Engine for searching poems using query words . The main purpose of this project is understand how vector space based retrieval models work.
+-A tf-idf based Search Engine for searching poems from [Gutenberg](http://www.gutenberg.org/) Poetry [Dataset](https://www.kaggle.com/terminate9298/gutenberg-poetry-dataset) using query words . The main purpose of this project is understand the implementation of Vector Space based Retrieval systems.
  -More on [Tf-Idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Install all the dependencies using pip3.
 
 ## The program/application can be broken down into the various subparts (actual file names also added) :
@@ -10,7 +10,7 @@ Stores the tokenized words of each document as lists and then the corresponding 
 2. term_frequency_generator.py: 
 Stores all the unique words present in the corpus along with frequencies in each document
 
-3. tf-idf.py
+3. tf-idf.py:
 Creates a dictionary which contains the words in the vocabulary as the key and the value as another dictionary which contains each document as key and its value contains the TF-IDF values.
 
 4. query_tokenizer.py: 
@@ -25,7 +25,9 @@ $ python3 term_frequency_generator.py
 $ python3 tf-idf.py
 $ python3 frontend.py
 ```
-**NOTE- Once we have populated the json files after executing the first 3 commands, only frontend.py needs to be executed each time.
+*NOTE - The Corpus is present in folder corpus_sample as txt files 
+
+**NOTE- Once we have populated the json files after executing the first 3 commands in folder store, only frontend.py needs to be executed each time.
 
 ## Installation:
 

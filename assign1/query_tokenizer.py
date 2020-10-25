@@ -43,8 +43,12 @@ def preprocessing(query):
         v=lemmatizer.lemmatize(w)
         #print(v)
         queryfin.add(v)
+    dict_meaning={}
     for w in queryfin:
-        print(dictionary.meaning(w))
+        dict_meaning[w]=dictionary.meaning(w)
+    # Dumping the created vocabulary into a json for further use
+    with open("./meanings.json", 'w') as file3:
+        json.dump(dict_meaning, file3) 
     return queryfin
 
 

@@ -77,7 +77,7 @@ $ python3
 
     ii. find_dict_meaning(query_new)
         dict_meaning : A Dictionary that stores the corresponding meaning for each input query token ( Using module PyDictionary)    
-```
+
 ## Creating The GUI
 GUI has been created using flask framework of python and the front end web pages have been designed using HTML, CSS and Bootstrap.
 We have also provided dictinary meanings for every term in the query using PyDictionary.

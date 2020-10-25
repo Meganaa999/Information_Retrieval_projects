@@ -1,7 +1,7 @@
 ## Poem Search Engine
 
--A tf-idf based Search Engine for searching poems using query words . The main purpose of this project is understand how vector space based retrieval models work.
- -More on [Tf-Idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Install all the dependencies using pip3.
+-A tf-idf based Search Engine for searching poems using query words. The main purpose of this project is understand how vector space based retrieval models work and how that can be utilised to get documents according to relevance.
+ -More on [Tf-Idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). 
 
 ## The program/application can be broken down into the various subparts (actual file names also added) :
 1. document_tokenizer.py: 

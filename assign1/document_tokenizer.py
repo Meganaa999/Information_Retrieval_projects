@@ -26,7 +26,7 @@ def create_tokens_list():
     cnt = 0 # Counter to keep count of files.
     for item in documentFiles:
         file_name = open("./corpus_sample/" + str(item) + ".txt")
-        print("Working on " + str(item) + ".txt")
+        print("Tokenizing " + str(item) + ".txt")
         text = file_name.read()
         tokenizer = nltk.RegexpTokenizer(r"\w+")
         temp_tokens = tokenizer.tokenize(text) # Word Tokenizing
@@ -41,7 +41,7 @@ def create_tokens_list():
 
 
     # Storing in json for better accessibility
-    with open("./document_tokens_list.json",'w') as f1:
+    with open("./store/document_tokens_list.json",'w') as f1:
         json.dump(document_tokens_list,f1)
 
 

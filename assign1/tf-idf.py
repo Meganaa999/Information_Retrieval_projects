@@ -43,33 +43,34 @@ def score_calc_per_word(doc_freq_list, vocabulary, doc_freq_per_word, N):
 
 
 def scorecalc():
-    with open("./term_frequencies.json") as data:
+    with open("./store/term_frequencies.json") as data:
         term_freq_list = json.load(data)
-    with open("./vocabulary.json") as data:
+    with open("./store/vocabulary.json") as data:
         vocabulary = json.load(data)
-    with open("./doc_freq_per_word.json") as data:
+    with open("./store/doc_freq_per_word.json") as data:
         doc_freq_per_word = json.load(data)
     documentFiles = [f for f in os.listdir(
         "./corpus_sample") if f.endswith(".txt")]
     N = len(documentFiles)
     score_calc_per_word(term_freq_list, vocabulary, doc_freq_per_word, N)
     print("scores loaded")
-    # Dumping the created vocabulary into a json for further use
-    with open("./score_per_word.json", 'w') as file2:
+    # Dumping the created tf-idf into a json for further use
+    with open("./store/score_per_word.json", 'w') as file2:
         json.dump(tf_idf_per_word, file2)
+    print("tf-idf values stored!!")
 
 
 def to_get_document_frequencies():
-    with open("./term_frequencies.json") as data:
+    with open("./store/term_frequencies.json") as data:
         term_freq_list = json.load(data)
-    with open("./vocabulary.json") as data:
+    with open("./store/vocabulary.json") as data:
         vocabulary = json.load(data)
 
     docfreqperword(term_freq_list, vocabulary)
     print("frequencies loaded")
 
     # Dumping the created vocabulary into a json for further use
-    with open("./doc_freq_per_word.json", 'w') as file1:
+    with open("./store/doc_freq_per_word.json", 'w') as file1:
         json.dump(vocabulary_idf, file1)
 
 

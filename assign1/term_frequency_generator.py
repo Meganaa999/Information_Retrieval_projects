@@ -27,7 +27,7 @@ def make_term_freq_for_doc_i(document_tokens):
 
 
 def to_make_vocabulary_and_term_freq():
-    with open("./document_tokens_list.json") as data:
+    with open("./store/document_tokens_list.json") as data:
         document_tokens_list = json.load(data)
 
     i=0
@@ -39,10 +39,10 @@ def to_make_vocabulary_and_term_freq():
         i+=1
 
     # Dumping the created vocabulary into a json for further use
-    with open("./vocabulary.json", 'w') as file1:
+    with open("./store/vocabulary.json", 'w') as file1:
         json.dump(vocabulary, file1) 
 
-    with open("./term_frequencies.json", 'w') as file2:
+    with open("./store/term_frequencies.json", 'w') as file2:
         json.dump(term_frequency, file2) 
 
     print("\n Picked vocabulary and freq from "+ str(i) + " files.")

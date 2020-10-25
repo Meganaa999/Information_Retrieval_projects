@@ -47,16 +47,13 @@ def preprocessing(query):
 
 
 def find_rank_doc(query):
-    with open("./score_per_word.json") as data:
+    with open("./store/score_per_word.json") as data:
         tf_idf = json.load(data)
     score_final={}
     cnt=0
     for term in query:
         if term in tf_idf:
-            #sorted_list=sorted(score_list[term],key=score_list[term].get,reverse=True)
             k=0
-            #term2="legend"
-            #print(score_list[term]+score_list[term2])
             for i in tf_idf[term]:
                 #print(score_list[term][i])
                 if cnt==0:

@@ -38,10 +38,10 @@ def result():
 	
 	if request.method == 'POST':
 		query = request.form["query"]
-	print(query)
-	html="<!DOCTYPE html> <head><link rel=stylesheet type=text/css href=static/styles/bootstrap.min.css> <link rel=stylesheet type=text/css href=static/styles/style.css></head><body style=\"background-color:powderblue;background-image:url('t.ly/deuO');\">"
-	html+="<div class='text-center'><h2>Search results for <i><b>"+query+"</b></i></h2></div><hr>"
-
+	#print(query)
+	html="<!DOCTYPE html> <head><link rel=stylesheet type=text/css href=static/styles/bootstrap.min.css> <link rel=stylesheet type=text/css href=static/styles/style.css></head><body style=\"background-color:powderblue;background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQq0dcylvYHWmWneOSPW8Wg8jPa2irXo1ZPg&usqp=CAU');background-repeat:no-repeat;background-size:cover;\">"
+	html+="<div class='text-center'><h1>Search results for <i><b>"+query+"</b></i></h1></div><hr>"
+	html+="<div style=\"text-align:center;\"><h2><b>Meanings</b></h2></div>"
 	#print("Hello" + query)
 	query_new, score_list = exec(query)
 	
@@ -52,15 +52,17 @@ def result():
 
 	sorted_list=sorted(score_list,key=score_list.get,reverse=True) 
 	for w in mean:
-		html+="<div class='dict'>" + w + " " + str(mean[w])+"</div>"
+		html+="<div style=\" font-size:15px;font-family:verdana; font-color:brown; \">"+ "<div style=\"margin-left:10%;font-size:18px;\">"+"<b>"+w+":"+"</b>"+"</div>" + "<p style=\"margin-left:10%;font-size:20px;margin-bottom:18px;margin-right:10%;\">" + str(mean[w])+"</p>"+"</div>"
+  
+	html+="<div style=\"text-align:center;margin-top:30px;margin-bottom:25px;\"><h2><b>Top 10 Search Results</b></h2></div>"
 	for i in sorted_list[:10]:
 		file_link= r'http://www.gutenberg.org/ebooks/' 
 		file_link+=str(documentFiles[int(i)])
 		#x=str(documentFiles[int(i)])
-		html+="<div><div style=\"margin-left:90px\"><a class='resultxx' href="+file_link+" }>"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
+		html+="<div><div style=\"text-align:center;\"><a class='resultxx' href="+file_link+" }>"+ metadata[str(documentFiles[int(i)])]["title"][0] +"</a><br></div><br>"
 		#html+="<b href="file_link">file_link</b>"
 	
-	html+="<div class='text-center'><h3><a href=/>Search Again</a></h3></div>"
+	html+="<div class='text-center'><h2><a href=/>Search Again</a></h2></div>"
 	html+="</body></html>"
 
 	return html

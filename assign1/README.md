@@ -53,7 +53,13 @@ $ python3
 
 ### document_tokenizer.py
     documentFiles : List of strings which has names of all files in Corpus.
-    document_tokens_list : A list of Lists of strings which stores the final tokens of corpus Document-wise.
+    ex: If the corpus contains 2 documents:
+    	documentFiles[]=["abc.txt","shakespeare.txt"]
+    document_tokens_list : A list of Lists of strings which stores the final tokens of corpus after tokenizing,stemming and normalization on each token Document-wise.
+    ex: If corpus conatins 2 files  abc.txt and shakespeare.txt:
+    	abc.txt="Ramu is jumping on the bed"
+	shakespeare.txt="Mornings are beautiful"
+	document_tokens_list=[["ramu","jump","bed"],["morning","beauti"]]
          
 ### term_frequency_generator.py
     vocabulary : Dictionary consisting of Unique words(strings) as key, and their frequency(int) in corpus as values.

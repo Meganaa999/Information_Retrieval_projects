@@ -49,10 +49,10 @@ def result():
 	# Loading metadata of the poems, to get the titles
 	with open("./metadata/gutenberg-metadata.json") as file_m:
 		metadata = json.load(file_m)
-	
+
 	sorted_list=sorted(score_list,key=score_list.get,reverse=True) 
 	for w in mean:
-		html+="<div class='dict'>" + str(mean[w])+"</div>"
+		html+="<div class='dict'>" + w + " " + str(mean[w])+"</div>"
 	for i in sorted_list[:10]:
 		file_link= r'http://www.gutenberg.org/ebooks/' 
 		file_link+=str(documentFiles[int(i)])

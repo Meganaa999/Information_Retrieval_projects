@@ -49,22 +49,22 @@ Functions called are to_get_document_frequencies() and scorecalc().
 
 The descriptions of the functions are given below :
 
-### to_get_document_frequencies()
--Data accessed from : term_frequencies.json, vocabulary.json
--Function called:
-	#### score_calc_per_word()
-	-Calculates tf-idf values of each word for each document in the form of a dictionary of dictionaries.
-	-Parameters: term_freq_list, vocabulary, doc_freq_per_word, total number of documents in corpus
--Data stored in: score_per_word.json
+### to_get_document_frequencies():
+	- Data accessed from : term_frequencies.json, vocabulary.json
+	- Function called:
+		#### score_calc_per_word()
+		- Calculates tf-idf values of each word for each document in the form of a dictionary of dictionaries.
+		- Parameters: term_freq_list, vocabulary, doc_freq_per_word, total number of documents in corpus
+	- Data stored in: score_per_word.json
 
 
-### storecalc()
--Data accessed from : term_frequencies.json, vocabulary.json, doc_freq_per_word.json
--Function called:
+### storecalc():
+	- Data accessed from : term_frequencies.json, vocabulary.json, doc_freq_per_word.json
+	- Function called:
 	#### docfreqperword()
-	-This function gets the frequency of documents containing a vocabulary word
-	-Parameters: doc_freq_list, vocabulary
--Data stored in: doc_freq_per_word.json
+		- This function gets the frequency of documents containing a vocabulary word
+		- Parameters: doc_freq_list, vocabulary
+	- Data stored in: doc_freq_per_word.json
 
 
 

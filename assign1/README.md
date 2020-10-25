@@ -80,14 +80,8 @@ Details about the song is obtained using the iTunes API.
 
 ### The Search Engine Home page.
 
-![](https://i.imgur.com/uIDeHaq.png?1)
+![](images/homepage.jpg)
 
-### The Result page
-
-![](https://i.imgur.com/LrN9dEA.png)
-
-### The result page, query in chinese (Traditional)
-![](https://i.imgur.com/GRR3llH.png?1)
 
 ## Machine specs:
 1. Processor: i7 4700HQ

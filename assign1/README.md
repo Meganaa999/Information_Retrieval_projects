@@ -93,7 +93,7 @@ We have also provided dictinary meanings for every term in the query using PyDic
 
 ### The Poem Search Engine Home page.
 
-![](images/homepage.jpg)
+![](images/hmpg_buttons.png)
 
 ### The Poem Search Engine Results page.
 

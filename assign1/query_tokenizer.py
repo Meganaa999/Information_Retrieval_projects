@@ -6,8 +6,7 @@ import nltk
 import json
 import re
 import string
-from PyDictionary import PyDictionary
-dictionary=PyDictionary()
+
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -43,12 +42,7 @@ def preprocessing(query):
         v=lemmatizer.lemmatize(w)
         #print(v)
         queryfin.add(v)
-    dict_meaning={}
-    for w in queryfin:
-        dict_meaning[w]=dictionary.meaning(w)
-    # Dumping the created vocabulary into a json for further use
-    with open("./meanings.json", 'w') as file3:
-        json.dump(dict_meaning, file3) 
+    
     return queryfin
 
 
@@ -66,7 +60,6 @@ def find_rank_doc(query):
             for i in tf_idf[term]:
                 #print(score_list[term][i])
                 if cnt==0:
-
                     score_final[k]=tf_idf[term][i]
                 else:
                     score_final[k]+=tf_idf[term][i]
@@ -92,7 +85,7 @@ def exec(query):
     query_new=preprocessing(query)
     print(query_new)
     score_list = find_rank_doc(query_new)
-    return score_list
+    return query_new, score_list
     
 
 

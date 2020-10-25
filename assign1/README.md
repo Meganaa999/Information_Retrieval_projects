@@ -96,16 +96,17 @@ We have also provided dictinary meanings for every term in the query using PyDic
 
 
 ## Machine specs:
-1. Processor: i7 4700HQ
-2. Ram: 24 GB DDR3
-3. OS: Ubuntu 16.04 LTS
+1. Processor: i5-8250U
+2. Ram: 8 GB DDR3
+3. OS: Windows 10 WSL2 kernel
 
 ## Results
-Index building time:
-- No stemming/lemmatization - 41.67s
-- Stemmed text + stopwords_removal - 146.13 s
+- Preprocessing time (Tokenizing, Normalization, Stemming) : 581.4531 s
 
-Memory usage (RAM) while building the index: around 8 GB for 3000 documents, 1.3 GB for 800 files  .
+- Index Building time : 29.7234 s
+
+
+Memory usage (RAM) while building the index: around 300 MB for 200 huge poem doucuments   .
 
 
 ## Members

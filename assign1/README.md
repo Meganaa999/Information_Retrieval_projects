@@ -97,7 +97,7 @@ We have also provided dictinary meanings for every term in the query using PyDic
 
 ### The Poem Search Engine Results page.
 
-![](images/results.png)
+![](images/results.PNG)
 
 
 ## Machine specs:

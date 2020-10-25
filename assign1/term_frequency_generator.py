@@ -1,5 +1,5 @@
 import json
-
+import math
 vocabulary = {}
 def make_vocabulary(document_tokens):
     '''
@@ -19,6 +19,10 @@ def make_term_freq_for_doc_i(document_tokens):
         count = term_freq_dict.get(word,0)
         term_freq_dict[word] = count + 1
 
+    # Logarithmically scaling
+    for term in term_freq_dict:
+        if(term_freq_dict[term]>0):
+            term_freq_dict[term] = math.log2(1 + term_freq_dict[term])
     return term_freq_dict
 
 

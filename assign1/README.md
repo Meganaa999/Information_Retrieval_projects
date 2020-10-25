@@ -1,6 +1,6 @@
 ## Poem Search Engine
 
--A tf-idf based Search Engine for searching poems from [Gutenberg](http://www.gutenberg.org/) Poetry [Dataset](https://www.kaggle.com/terminate9298/gutenberg-poetry-dataset) using query words . The main purpose of this project is understand the implementation of Vector Space based Retrieval systems.
+-A tf-idf based Search Engine for searching poems using query words . The main purpose of this project is understand how vector space based retrieval models work.
  -More on [Tf-Idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). Install all the dependencies using pip3.
 
 ## The program/application can be broken down into the various subparts (actual file names also added) :
@@ -10,7 +10,7 @@ Stores the tokenized words of each document as lists and then the corresponding 
 2. term_frequency_generator.py: 
 Stores all the unique words present in the corpus along with frequencies in each document
 
-3. tf-idf.py:
+3. tf-idf.py
 Creates a dictionary which contains the words in the vocabulary as the key and the value as another dictionary which contains each document as key and its value contains the TF-IDF values.
 
 4. query_tokenizer.py: 
@@ -25,9 +25,7 @@ $ python3 term_frequency_generator.py
 $ python3 tf-idf.py
 $ python3 frontend.py
 ```
-*NOTE - The Corpus is present in folder corpus_sample as txt files 
-
-**NOTE- Once we have populated the json files after executing the first 3 commands in folder store, only frontend.py needs to be executed each time.
+**NOTE- Once we have populated the json files after executing the first 3 commands, only frontend.py needs to be executed each time.
 
 ## Installation:
 
@@ -58,12 +56,15 @@ $ python3
     document_tokens_list : A list of Lists of strings which stores the final tokens of corpus after tokenizing,stemming and normalization on each token Document-wise.
     ex: If corpus conatins 2 files  abc.txt and shakespeare.txt:
     	abc.txt="Ramu is jumping on the bed"
-	shakespeare.txt="Mornings are beautiful"
-	document_tokens_list=[["ramu","jump","bed"],["morning","beauti"]]
+		shakespeare.txt="Mornings are beautiful"
+		document_tokens_list=[["ramu","jump","bed"],["morning","beauti"]]
          
 ### term_frequency_generator.py
     vocabulary : Dictionary consisting of Unique words(strings) as key, and their frequency(int) in corpus as values.
+    ex:If the vocabulary contains 2 words 'play' and 'sunset':
+    	vocabulary={"play":23,"sunset":3}
     term_frequency : List of Dictionaries - having key as words, and values as term frequency per Document
+    ex:term_frequency=[{"play":10,"sunset":1},{"play":13,"sunset":2}]
 
 
 ### tf-idf.py

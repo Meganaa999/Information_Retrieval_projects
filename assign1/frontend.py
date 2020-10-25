@@ -39,7 +39,7 @@ def result():
 	if request.method == 'POST':
 		query = request.form["query"]
 	print(query)
-	html="<!DOCTYPE html> <head><link rel=stylesheet type=text/css href=static/styles/bootstrap.min.css> <link rel=stylesheet type=text/css href=static/styles/style.css></head><body>"
+	html="<!DOCTYPE html> <head><link rel=stylesheet type=text/css href=static/styles/bootstrap.min.css> <link rel=stylesheet type=text/css href=static/styles/style.css></head><body style=\"background-color:powderblue;background-image:url('t.ly/deuO');\">"
 	html+="<div class='text-center'><h2>Search results for <i><b>"+query+"</b></i></h2></div><hr>"
 
 	#print("Hello" + query)

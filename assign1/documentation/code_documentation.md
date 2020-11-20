@@ -7,9 +7,7 @@ the files for which the documentation is being done are :
 5. frontend.py
 
 ## Modules/ libraries which were imported
--
--
-
+- pyDictionary
 
 ## document_tokenizer.py
 
@@ -29,14 +27,14 @@ the files for which the documentation is being done are :
 - to_make_vocabulary_and_term_freq() is called which in turn accesses make_vocabulary() function to build the vocabulary and make_term_freq_for_doc_i() to get frequency of term per document. 
   The descriptions of the functions are given below :
 
-	### make_vocabulary():
+### make_vocabulary():
  	- Function for building the vocabulary i.e. the dictionary which has all the unique words in the corpus
      		- Parameters given: Document tokens which is data taken from : ./document_tokens_list.json
      		- Unique words from each document token processed in a for loop to get unique words
      		- Data stored in : ./vocabulary.json
 
 
-	###  make_term_freq_for_doc_i()
+###  make_term_freq_for_doc_i()
  	- Function for building a dictionary of frequencies for doc i
     		- Parameters given: Document tokens which is data taken from : ./document_tokens_list.json
      		- Each word in a doc mapped to its frequency in that particular document
@@ -51,26 +49,26 @@ Functions called are to_get_document_frequencies() and scorecalc().
 
 The descriptions of the functions are given below :
 
-###to_get_document_frequencies()
--Data accessed from : term_frequencies.json, vocabulary.json
--Function called:
-	####score_calc_per_word()
-	-Calculates tf-idf values of each word for each document in the form of a dictionary of dictionaries.
-	-Parameters: term_freq_list, vocabulary, doc_freq_per_word, total number of documents in corpus
--Data stored in: score_per_word.json
+### to_get_document_frequencies():
+	- Data accessed from : term_frequencies.json, vocabulary.json
+	- Function called:
+		#### score_calc_per_word()
+		- Calculates tf-idf values of each word for each document in the form of a dictionary of dictionaries.
+		- Parameters: term_freq_list, vocabulary, doc_freq_per_word, total number of documents in corpus
+	- Data stored in: score_per_word.json
 
 
-###storecalc()
--Data accessed from : term_frequencies.json, vocabulary.json, doc_freq_per_word.json
--Function called:
-	####docfreqperword()
-	-This function gets the frequency of documents containing a vocabulary word
-	-Parameters: doc_freq_list, vocabulary
--Data stored in: doc_freq_per_word.json
+### storecalc():
+	- Data accessed from : term_frequencies.json, vocabulary.json, doc_freq_per_word.json
+	- Function called:
+	#### docfreqperword()
+		- This function gets the frequency of documents containing a vocabulary word
+		- Parameters: doc_freq_list, vocabulary
+	- Data stored in: doc_freq_per_word.json
 
 
 
-##query_tokenizer.py
+## query_tokenizer.py
 - The code for entire query processing and calculating the results based on scores of the terms of query. Entire file is accessed from frontend.py.
 All the necessary functions called by exec() function which inturn is called in frontend.py file.
 Functions are as follows:
@@ -84,11 +82,11 @@ Functions are as follows:
     5. Tokenizing
 - Returning the query
 
-###find_rank_doc(query)
+### find_rank_doc(query)
 - Function will calculate the scores for every document based on query and return top 10 ranked documents
 - Data accessed from : score_per_word.json
 - Function called:
-	####findtop10()
+	#### findtop10()
 	- Returns top 10 ranks
 	- Parameters: score_list
 

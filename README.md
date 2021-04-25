@@ -9,3 +9,8 @@ Locality Sensetive Hashing on DNA data.
 
 ## Assignment-3
 Movie Recommender system.
+
+## Done By
+* [Keshav Kabra](https://github.com/everlearner)
+* [Rupsa Dhar](https://github.com/rupsadhar)
+* [Meganaa Reddy](https://github.com/Meganaa999)
